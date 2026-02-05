@@ -1,27 +1,25 @@
-import csv
-import sys
+from system import search_number, write_number, show_contacts
 
-# condition check for sys
-if len(sys.argv) != 3:
-    print('TypeError: [python ./phonebook.py name number]')
+print('\n📞 Ph.neB..k -------')
 
+exit_commands = ['q', 'quit', 'exit', 'terminate']
+while True:
+    command = input('\n-- What do you want Search/Add/Contacts? ')
+    if command.lower() in exit_commands:
+        break
 
-# Read phonebook.csv
-with open("phonebook.csv", "r") as file:
-    reader = csv.DictReader(file)
-    for fieldname in reader.fieldnames:
-        print(fieldname, end='\t')
-    print()
-    for contact in reader:
-        print(contact['name'], end="\t")
-        print(contact['number'])
-
-# Write phonebook.csv
-
-fieldnames = ['name','number']
-name = sys.argv[1]
-number = sys.argv[2] 
-
-with open("phonebook.csv", "a", newline='') as file:
-    writer = csv.DictWriter(file, fieldnames=fieldnames)
-    writer.writerow({fieldnames[0]: name, fieldnames[1]: number})
+    if command.lower() == 'search':
+        name = input('Search: ')
+        results = search_number(name)
+        if results:
+            print('\nFound results:', results)
+        else:
+            print('\n* Not Found! *')
+    elif command.lower() == 'add':
+        name = input('Name: ')
+        number = input('Number: ')
+        write_number(name, number)
+        print('Contact Added in Phonebook.')
+    elif command.lower() == 'contacts':
+        contacts = show_contacts()
+        print('All Contacts:', contacts)
