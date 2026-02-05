@@ -1,6 +1,6 @@
 from show_flights import show_flights
 
-available_data = ['jaipur', 'mumbai']
+available_data = ['jaipur', 'mumbai', 'delhi', 'banglore', 'chennai']
 
 print('\n\t\t\tWelcome to BookmyHawai.com\n\n')
 

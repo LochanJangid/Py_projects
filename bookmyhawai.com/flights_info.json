@@ -1,1 +1,106 @@
-{"jaipur_to_mumbai": [{"name": "SpiceJet", "departure_time": "2:20", "arrival_time": "4:00", "price_per_person": 5505, "stop": "Non"}, {"name": "Air India", "departure_time": "6:00", "arrival_time": "8:05", "price_per_person": 5599, "stop": "Non"}, {"name": "IndiGo", "departure_time": "6:25", "arrival_time": "14:40", "price_per_person": 6401, "stop": "Indore"}, {"name": "IndiGo", "departure_time": "6:55", "arrival_time": "10:40", "price_per_person": 11515, "stop": "Udaipur"}, {"name": "Air India", "departure_time": "8:35", "arrival_time": "14:20", "price_per_person": 14649, "stop": "Delhi"}], "mumbai_to_jaipur": [{"name": "Air India", "departure_time": "5:25", "arrival_time": "7:10", "price_per_person": 19294, "stop": "Non"}, {"name": "Air India Exp", "departure_time": "7:35", "arrival_time": "9:30", "price_per_person": 11928, "stop": "Non"}, {"name": "IndiGo", "departure_time": "14:55", "arrival_time": "16:30", "price_per_person": 9026, "stop": "Non"}, {"name": "SpiceJet", "departure_time": "15:20", "arrival_time": "17:20", "price_per_person": 12559, "stop": "Non"}, {"name": "Air India", "departure_time": "21:15", "arrival_time": "23:15", "price_per_person": 13486, "stop": "Non"}]}
+{
+    "jaipur_to_mumbai": [
+        {
+            "name": "SpiceJet",
+            "departure_time": "2:20",
+            "arrival_time": "4:00",
+            "price_per_person": 5505,
+            "stop": "Non"
+        },
+        {
+            "name": "Air India",
+            "departure_time": "6:00",
+            "arrival_time": "8:05",
+            "price_per_person": 5599,
+            "stop": "Non"
+        },
+        {
+            "name": "IndiGo",
+            "departure_time": "6:25",
+            "arrival_time": "14:40",
+            "price_per_person": 6401,
+            "stop": "Indore"
+        },
+        {
+            "name": "IndiGo",
+            "departure_time": "6:55",
+            "arrival_time": "10:40",
+            "price_per_person": 11515,
+            "stop": "Udaipur"
+        },
+        {
+            "name": "Air India",
+            "departure_time": "8:35",
+            "arrival_time": "14:20",
+            "price_per_person": 14649,
+            "stop": "Delhi"
+        }
+    ],
+    "mumbai_to_jaipur": [
+        {
+            "name": "Air India",
+            "departure_time": "5:25",
+            "arrival_time": "7:10",
+            "price_per_person": 19294,
+            "stop": "Non"
+        },
+        {
+            "name": "Air India Exp",
+            "departure_time": "7:35",
+            "arrival_time": "9:30",
+            "price_per_person": 11928,
+            "stop": "Non"
+        },
+        {
+            "name": "IndiGo",
+            "departure_time": "14:55",
+            "arrival_time": "16:30",
+            "price_per_person": 9026,
+            "stop": "Non"
+        },
+        {
+            "name": "SpiceJet",
+            "departure_time": "15:20",
+            "arrival_time": "17:20",
+            "price_per_person": 12559,
+            "stop": "Non"
+        },
+        {
+            "name": "Air India",
+            "departure_time": "21:15",
+            "arrival_time": "23:15",
+            "price_per_person": 13486,
+            "stop": "Non"
+        }
+    ],
+  "delhi_to_mumbai": [
+    { "name": "IndiGo", "departure_time": "06:00", "arrival_time": "08:10", "price_per_person": 6100, "stop": "Non" },
+    { "name": "Air India", "departure_time": "09:30", "arrival_time": "11:40", "price_per_person": 6550, "stop": "Non" },
+    { "name": "Vistara", "departure_time": "14:15", "arrival_time": "16:25", "price_per_person": 7200, "stop": "Non" }
+  ],
+  "mumbai_to_delhi": [
+    { "name": "IndiGo", "departure_time": "07:10", "arrival_time": "09:20", "price_per_person": 6000, "stop": "Non" },
+    { "name": "Air India", "departure_time": "12:00", "arrival_time": "14:10", "price_per_person": 6700, "stop": "Non" },
+    { "name": "Vistara", "departure_time": "18:45", "arrival_time": "20:55", "price_per_person": 7400, "stop": "Non" }
+  ],
+  "delhi_to_bangalore": [
+    { "name": "IndiGo", "departure_time": "05:50", "arrival_time": "08:30", "price_per_person": 7200, "stop": "Non" },
+    { "name": "Air India", "departure_time": "10:20", "arrival_time": "13:00", "price_per_person": 7600, "stop": "Non" },
+    { "name": "Vistara", "departure_time": "16:40", "arrival_time": "19:25", "price_per_person": 8200, "stop": "Non" }
+  ],
+  "bangalore_to_delhi": [
+    { "name": "IndiGo", "departure_time": "06:30", "arrival_time": "09:15", "price_per_person": 7000, "stop": "Non" },
+    { "name": "Air India", "departure_time": "11:45", "arrival_time": "14:30", "price_per_person": 7500, "stop": "Non" },
+    { "name": "Vistara", "departure_time": "20:10", "arrival_time": "22:55", "price_per_person": 8300, "stop": "Non" }
+  ],
+  "mumbai_to_chennai": [
+    { "name": "IndiGo", "departure_time": "06:20", "arrival_time": "08:20", "price_per_person": 5900, "stop": "Non" },
+    { "name": "Air India", "departure_time": "13:10", "arrival_time": "15:10", "price_per_person": 6300, "stop": "Non" },
+    { "name": "Vistara", "departure_time": "19:30", "arrival_time": "21:30", "price_per_person": 6900, "stop": "Non" }
+  ],
+  "chennai_to_mumbai": [
+    { "name": "IndiGo", "departure_time": "07:00", "arrival_time": "09:00", "price_per_person": 5800, "stop": "Non" },
+    { "name": "Air India", "departure_time": "12:40", "arrival_time": "14:40", "price_per_person": 6200, "stop": "Non" },
+    { "name": "Vistara", "departure_time": "21:00", "arrival_time": "23:00", "price_per_person": 7000, "stop": "Non" }
+  ]
+}

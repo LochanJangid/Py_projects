@@ -6,10 +6,8 @@ with open('flights_info.json') as f:
 
 
 def show_flights(fromm, too, price_range):
-    if fromm == 'jaipur' and too == 'mumbai':
-        user_flights = flights['jaipur_to_mumbai']
-    elif fromm == 'mumbai' and too == 'jaipur':
-        user_flights = flights['mumbai_to_jaipur']
+    user_route = f'{fromm}_to_{too}'
+    user_flights = flights[user_route]
     
     for flight in user_flights:
         if flight['price_per_person'] <= price_range:
