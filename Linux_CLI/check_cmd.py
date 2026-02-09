@@ -3,7 +3,7 @@ import run_cmd
 def check_command(commands):
     """see command and check which command it is and if available call it."""
     command = commands[0]
-    available_commands = ['pwd', 'cd', 'exit', 'ls', 'mkdir', 'rmdir', 'touch', 'cat', 'rm', 'date', 'cp', 'mv', 'echo']
+    available_commands = ['pwd', 'cd', 'exit', 'ls', 'mkdir', 'rmdir', 'touch', 'cat', 'rm', 'date', 'cp', 'mv', 'echo', 'sort', 'join']
 
     if command == 'help':
         print('Available commands are:', end=' ')
