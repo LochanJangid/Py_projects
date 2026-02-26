@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block body %}
+    <section class="py-12">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-2xl font-semibold mb-2">Welcome to Phonebook</h2>
+        <form class="mt-4  flex flex-col sm:flex-row gap-3 justify-center">
+          <input
+            type="search"
+            placeholder="Search "
+            required
+            class="w-full sm:w-80 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <button
+            type="submit"
+            class="px-6 py-2 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition"
+          >
+            Search
+          </button>
+        </form>
+            <a href="/add_contact" class="fixed top-4 right-4 flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M15 19a4 4 0 10-6 0m3-9a4 4 0 110-8 4 4 0 010 8zm7 3v4m2-2h-4" />
+          </svg>
+          Add Contact</a>
+        </button>
+      </div>
+    </section>
+    <div class="flex items-center justify-center bg-gray-50 p-3">
+        <div class="w-full max-w-3xl bg-white rounded-xl shadow-sm p-4">
+          <table class="w-full">
+            <thead>
+              <tr class="text-gray-500 text-sm">
+                <th class="text-left pb-3">Name</th>
+                <th class="text-left pb-3">Number</th>
+                <th class="text-right pb-3">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y">
+              {% for contact in contacts %}
+              <tr class="py-2">
+                <td class="py-3">{{ contact.name }}</td>
+                <td class="py-3">{{ contact.number }}</td>
+                <td class="flex justify-end flex-wrap">
+                    <a href="tel:+91{{contact.number}}">
+                     <button class="m-2 px-3 py-1 text-sm rounded-md bg-green-100 text-white cursor-pointer">📞</button>
+                    </a>
+                  <form action="/contact_detail" method="POST">
+                    <input value="{{ contact.id }}" name="id" hidden >
+                    <button type="submit" class="m-2 px-3 py-1 text-sm rounded-md bg-blue-100 text-white cursor-pointer">📑</button>
+                  </form>
+                  <form action="/delete_contact" method="POST">
+                    <input value="{{ contact.id }}" name="id" hidden >
+                    <button type="submit" class="m-2 px-3 py-1 text-sm rounded-md bg-red-100 text-white cursor-pointer">❌</button>
+                  </form>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+    </div>
+{% endblock %}
