@@ -3,10 +3,10 @@
     <section class="py-12">
       <div class="max-w-4xl mx-auto px-4 text-center">
         <h2 class="text-2xl font-semibold mb-2">Welcome to Phonebook</h2>
-        <a href="/search"  class="mt-4  flex flex-col sm:flex-row gap-3 justify-center">
-          <input type="search" placeholder="Search " class="w-full sm:w-80 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </a>
+        <div onclick="openSearchPopup()"   class="mt-4  flex flex-col sm:flex-row gap-3 justify-center">
+          <button id="searchButton" type="search" placeholder="Search " class="cursor-text w-full sm:w-80 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >Search</button>
+        </div>
             <a href="/add_contact" class="fixed top-4 right-4 flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M15 19a4 4 0 10-6 0m3-9a4 4 0 110-8 4 4 0 010 8zm7 3v4m2-2h-4" />
@@ -15,12 +15,49 @@
         </button>
       </div>
     </section>
-    <div id="contacts">
-
+    <div id="popup" 
+    class="fixed hidden inset-0 bg-opacity-50 items-center justify-center z-50 w-full h-full">
+    <!-- Popup Box --> 
+     <div class="flex items-center justify-center w-full h-full bg-gray-900/75">
+    <div class="bg-white p-8 rounded-xl shadow-xl w-5/6 h-5/6 ">
+      <section class="py-12">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+          <input name="search" id="searchInput" autofocus type="search" placeholder="Search " class="w-full sm:w-80 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+        <button onclick="closeSearchPopup()"  class="m-2 px-3 py-1 text-sm rounded-md bg-black text-white cursor-pointer">
+          Back</button>
+      </div>
+    </section>
+    <div id="searchResult" class=" h-1/2 overflow-auto"></div>
     </div>
+  </div>
+  </div>
+    <div id="contacts"></div>
     <script>
+      const search_result = document.getElementById('searchResult');
+      const searchInput = document.getElementById('searchInput');
+      const search_pop_up = document.getElementById('popup');
+      const search_button = document.getElementById('searchButton');
+      const all_contacts = document.getElementById('contacts');
 
-        show_here = document.getElementById('contacts');
-      fetch_data('', show_here);
+      fetch_data('', all_contacts);
+
+      function openSearchPopup(){
+        search_pop_up.classList.remove('hidden');
+        search_pop_up.classList.add('flex');
+        searchInput.focus();
+        search_button.classList.add('hidden');
+      }
+      function closeSearchPopup(){
+        search_pop_up.classList.remove('flex');
+        search_pop_up.classList.add('hidden');
+        search_button.classList.remove('hidden');
+      }
+
+
+      searchInput.addEventListener('input', function(){
+        console.log('hey')
+        const query = searchInput.value;
+        fetch_data(query, search_result);
+      });
     </script>
 {% endblock %}

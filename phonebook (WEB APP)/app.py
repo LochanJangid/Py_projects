@@ -20,21 +20,22 @@ def add_contact():
         # valid every input if neccassay 
         name = request.form.get('name')
         number = request.form.get('number')
+        email = request.form.get('email')
+        relation = request.form.get('relation')
+        company = request.form.get('company')     
+
         errors = []
 
         if not name:
             errors.append('Name is required.')
         if not re.search(r'^\d{10}$', number):
             errors.append('Enter a valid phone number.')
+        if email:
+            if not re.search('^\w+@\w+\.com$', email):
+                errors.append('Enter a valid email.')
         
         if errors:
             return render_template('add_contact.html', errors=errors)  
-                
-
-        email = request.form.get('email')
-        relation = request.form.get('relation')
-        company = request.form.get('company')     
-
 
         # insert new contact in phonebook
         conn = sqlite3.connect('phonebook.db')
@@ -86,3 +87,43 @@ def show_contacts():
 @app.route('/search')
 def search():
     return render_template('search.html')
+
+@app.route('/modify_contact', methods=['POST', 'GET'])
+def modify_contact():
+    conn = sqlite3.connect('phonebook.db')
+    conn.row_factory = sqlite3.Row
+    cursor = conn.cursor()
+    
+    if request.method == 'POST':
+        # valid every input if neccassay 
+        id = request.form.get('id')
+        name = request.form.get('name')
+        number = request.form.get('number')
+        email = request.form.get('email')
+        relation = request.form.get('relation')
+        company = request.form.get('company')    
+
+        errors = []
+
+        if not name:
+            errors.append('Name is required.')
+        if not re.search(r'^\d{10}$', number):
+            errors.append('Enter a valid phone number.')
+        if email:
+            if not re.search('^\w+@\w+\.com$', email):
+                errors.append('Enter a valid email.')
+        
+        if errors:
+            return render_template('modify_contact.html', errors=errors)  
+
+        # insert new contact in phonebook
+        cursor.execute('UPDATE phonebook SET name = ?, number =?,  email = ?,  relation = ?, company = ? WHERE id = ?', (name, number, email, relation, company, id))
+        conn.commit()
+        conn.close()
+        return redirect('/')
+    
+    cursor.execute('SELECT * FROM phonebook WHERE id = ?', request.args.get("id"))
+    details = cursor.fetchone()
+    conn.close()
+
+    return render_template('modify_contact.html', details=details)

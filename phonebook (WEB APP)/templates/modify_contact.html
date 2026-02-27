@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="bg-blue-100 w-screen h-screen flex flex-col items-center justify-center p-10">
+    {% if errors %}
+    <div class="bg-red-400 rounded-xl mt-10 p-5 text-white">
+        {% for error in errors %}
+            <p>{{ error }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <form action="/modify_contact" method="POST" class="grid bg-gray-100 p-10 rounded-xl shadow-xs w-96 m-10">
+        <input name="id" type="number" hidden value="{{details.id}}" class="m-5 border p-2 border-gray-300 rounded-sm">
+        <input name="name" type="text" placeholder="Name*" value="{{details.name}}" class="m-5 border p-2 border-gray-300 rounded-sm">
+        <input name="number" type="number" placeholder="Number*" value="{{details.number}}" class="m-5 border p-2 border-gray-300 rounded-sm">
+        <input name="email" type="email" placeholder="Email" value="{{details.email}}" class="m-5 border p-2 border-gray-300 rounded-sm">
+        <input name="relation" type="text" placeholder="Relation" value="{{details.relation}}" class="m-5 border p-2 border-gray-300 rounded-sm">
+        <input name="company" type="text" placeholder="Company Name" value="{{details.company}}" class="m-5 border p-2 border-gray-300 rounded-sm">
+        <div class="flex justify-center"><button type="submit" class="m-2 px-3 py-2 text-sm rounded-md bg-green-900 text-white cursor-pointer">Save</button>
+        <a href="/" class="m-2 px-3 py-2 text-sm rounded-md bg-blue-900 text-white cursor-pointer">Back</a>
+        </div>
+    </form>
+    </div>
+{% endblock %}
