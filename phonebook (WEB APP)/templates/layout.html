@@ -4,6 +4,13 @@
         <title>phonebook</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <script>
+            async function fetch_data(q, show_here){
+              response = await fetch('/show_contacts?q='+q);
+              contacts = await response.text();
+              show_here.innerHTML = contacts;
+            }
+        </script>
     </head>
     <body>
         {% block body %} {% endblock %}

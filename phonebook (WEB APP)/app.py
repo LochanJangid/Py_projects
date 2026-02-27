@@ -12,7 +12,6 @@ def index():
     cursor.execute('SELECT * FROM phonebook')
     contacts = cursor.fetchall()
     conn.close()
-
     return render_template('index.html', contacts=contacts)
 
 @app.route('/add_contact', methods=["POST", "GET"])
@@ -25,7 +24,7 @@ def add_contact():
 
         if not name:
             errors.append('Name is required.')
-        if not re.search('^\d{10}$', number):
+        if not re.search(r'^\d{10}$', number):
             errors.append('Enter a valid phone number.')
         
         if errors:
@@ -68,3 +67,22 @@ def delete_contact():
     conn.commit()
     conn.close()
     return redirect('/')
+
+@app.route('/show_contacts')
+def show_contacts():
+    q=''
+    if request.args.get("q"):    
+        q = request.args.get("q")
+        
+    conn = sqlite3.connect('phonebook.db')
+    conn.row_factory = sqlite3.Row
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM phonebook WHERE name LIKE ?', ('%'+q+'%',))
+    contacts = cursor.fetchall()
+    conn.close()
+
+    return render_template('show_contacts.html', contacts=contacts)
+
+@app.route('/search')
+def search():
+    return render_template('search.html')

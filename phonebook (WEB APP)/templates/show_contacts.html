@@ -1,0 +1,34 @@
+<div class="flex items-center justify-center bg-gray-50 p-3">
+        <div class="w-full max-w-3xl bg-white rounded-xl shadow-sm p-4">
+          <table class="w-full">
+            <thead>
+              <tr class="text-gray-500 text-sm">
+                <th class="text-left pb-3">Name</th>
+                <th class="text-left pb-3">Number</th>
+                <th class="text-right pb-3">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y">
+              {% for contact in contacts %}
+              <tr class="py-2">
+                <td class="py-3">{{ contact.name }}</td>
+                <td class="py-3">{{ contact.number }}</td>
+                <td class="flex justify-end flex-wrap">
+                    <a href="tel:+91{{contact.number}}">
+                     <button class="m-2 px-3 py-1 text-sm rounded-md bg-green-100 text-white cursor-pointer">📞</button>
+                    </a>
+                  <form action="/contact_detail" method="POST">
+                    <input value="{{ contact.id }}" name="id" hidden >
+                    <button type="submit" class="m-2 px-3 py-1 text-sm rounded-md bg-blue-100 text-white cursor-pointer">📑</button>
+                  </form>
+                  <form action="/delete_contact" method="POST">
+                    <input value="{{ contact.id }}" name="id" hidden >
+                    <button type="submit" class="m-2 px-3 py-1 text-sm rounded-md bg-red-100 text-white cursor-pointer">❌</button>
+                  </form>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+    </div>
