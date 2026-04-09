@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="relative bg-cover bg-center">
+    <div id="error-message" class="bg-red-400 rounded-xl mt-10 p-5 text-white"></div>
+    <div class="flex justify-between items-center md:flex-col">
+    <form action="/login" id="login-form" method="POST" class="bg-white relative p-10 rounded-xl shadow-xs w-96 m-10">
+        <input name="username" type="text" placeholder="Username*" class="m-5 border p-2 border-gray-300 rounded-sm">
+        <input name="password" type="password" placeholder="Passowrd" class="m-5 border p-2 border-gray-300 rounded-sm">
+        <div class="flex justify-center"><button type="submit" class="m-2 px-3 py-2 text-sm rounded-md bg-green-900 text-white cursor-pointer">Login</button>
+        <a href="/" class="m-2 px-3 py-2 text-sm rounded-md bg-blue-900 text-white cursor-pointer">Back</a>
+        </div>
+    </form>
+    <div>
+        <!-- <img src="static/jamie.png" class="h-auto w-1/2" alt="Jamie Lennister"> -->
+    </div>
+    
+    </div>
+    </div>
+    <script>
+        show_error_msg('login-form', '/login', 'error-message')
+    </script>
+{% endblock %}

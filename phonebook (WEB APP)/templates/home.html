@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex items-center justify-center px-6">
+    <div class="max-w-4xl w-full bg-white shadow-xl rounded-2xl p-10 text-center">
+
+    <!-- Heading -->
+    <h1 class="text-4xl font-bold text-gray-800 mb-4">
+      Welcome to Personal Phonebook
+    </h1>
+
+    <p class="text-gray-600 text-lg mb-6">
+      A simple and secure web app to store and manage your contacts anytime, anywhere.
+    </p>
+
+    <!-- Description Section -->
+    <div class="text-left text-gray-600 space-y-4 mb-8">
+      <p>
+        Personal Phonebook is designed to help you save, organize, and access your contacts easily.
+        Whether it’s friends, family, or business connections — everything stays in one secure place.
+      </p>
+      <p>
+        No email verification. No phone number. No OTP process.
+        Just create a username and password and start managing your contacts instantly.
+      </p>
+      <p>
+        Your data is accessible from anywhere, on any device, whenever you need it.
+        Simple. Fast. Private.
+      </p>
+    </div>
+
+    <!-- Buttons -->
+    <div class="flex justify-center gap-4 flex-wrap">
+      
+      <a href="/register" class="flex items-center gap-2 px-6 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition shadow-md">
+        <i data-lucide="user-plus" class="w-4 h-4"></i>
+        Register
+      </a>
+
+      <a href="/login" class="flex items-center gap-2 px-6 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition shadow-sm">
+        <i data-lucide="log-in" class="w-4 h-4"></i>
+        Login
+      </a>
+
+    </div>
+
+  </div>
+</div>
+  <script>
+    lucide.createIcons();
+  </script>
+{% endblock %}
